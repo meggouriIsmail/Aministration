@@ -31,5 +31,10 @@ namespace Aministration
         public virtual DbSet<RelativeHumidity> RelativeHumidities { get; set; }
         public virtual DbSet<Station> Stations { get; set; }
         public virtual DbSet<User> Users { get; set; }
+
+        public static implicit operator HumidityCalculatorEntities(RelativeHumidity v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -126,6 +126,9 @@
     <Compile Include="User.cs">
       <DependentUpon>Humidity.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Observateures\Observateurs.resx">
+      <DependentUpon>Observateurs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RelativeHumidity\Humidite.resx">
       <DependentUpon>Humidite.cs</DependentUpon>
     </EmbeddedResource>

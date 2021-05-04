@@ -20,7 +20,6 @@ namespace Aministration
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = db.RelativeHumidities.ToList();
         }
     }
 }
