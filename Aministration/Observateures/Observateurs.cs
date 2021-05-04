@@ -21,36 +21,51 @@ namespace Aministration.Observateures
 
         private void Observateurs_Load(object sender, EventArgs e)
         {
-           // var obser =( from o in db.Observateurs
-           //             select new
-           //             {
-           //                 NomPrenom = o.NomPrenomObservateur,
-           //             });
-           //dataGridViewObs.DataSource = obser.ToList();
-           // var Bas =( from b in db.Bassins
-           //             select new
-           //             {
-           //                 NomBassin = b.NomBassin,
-           //             });
-            //dataGridView3.DataSource = Bas.ToList();
+            var obser = (from o in db.Observateurs
+                         select new
+                         {
+                             ID = o.ObservateurId,
+                             NomPrenom = o.NomPrenomObservateur,
+                         });
+            dataGridViewObs.DataSource = obser.ToList();
+            var Bas = (from b in db.Bassins
+                       select new
+                       {
+                           ID = b.BassinId,
+                           NomBassin = b.NomBassin,
+                       });
+            dataGridViewBas.DataSource = Bas.ToList();
             var sta =( from s in db.Stations
                         select new
                         {
+                            ID = s.StationId,
                             NomStation = s.NomStation,
                         });
             dataGridViewStat.DataSource = sta.ToList();
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show(textBoxCodeObs.Text);
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridViewObs_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-
+            textBoxCodeObs.Text = dataGridViewObs.Rows[e.RowIndex].Cells[0].Value.ToString();
+            textBoxNomObs.Text = dataGridViewObs.Rows[e.RowIndex].Cells[1].Value.ToString();
         }
 
+        private void dataGridViewStat_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            textBoxNomStat.Text = dataGridViewStat.Rows[e.RowIndex].Cells[1].Value.ToString();
+            textBoxCodeStat.Text = dataGridViewStat.Rows[e.RowIndex].Cells[0].Value.ToString();
+        }
+
+        private void dataGridView3_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            textBoxNomBas.Text = dataGridViewBas.Rows[e.RowIndex].Cells[1].Value.ToString();
+            textBoxCodeBas.Text = dataGridViewBas.Rows[e.RowIndex].Cells[0].Value.ToString();
+        }
     }
 }
