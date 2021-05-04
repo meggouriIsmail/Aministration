@@ -21,18 +21,18 @@ namespace Aministration.Observateures
 
         private void Observateurs_Load(object sender, EventArgs e)
         {
-            var obser =( from o in db.Observateurs
-                        select new
-                        {
-                            NomPrenom = o.NomPrenomObservateur,
-                        });
-           dataGridViewObs.DataSource = obser.ToList();
-            var Bas =( from b in db.Bassins
-                        select new
-                        {
-                            NomBassin = b.NomBassin,
-                        });
-            dataGridView3.DataSource = Bas.ToList();
+           // var obser =( from o in db.Observateurs
+           //             select new
+           //             {
+           //                 NomPrenom = o.NomPrenomObservateur,
+           //             });
+           //dataGridViewObs.DataSource = obser.ToList();
+           // var Bas =( from b in db.Bassins
+           //             select new
+           //             {
+           //                 NomBassin = b.NomBassin,
+           //             });
+            //dataGridView3.DataSource = Bas.ToList();
             var sta =( from s in db.Stations
                         select new
                         {
